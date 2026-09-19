@@ -24,26 +24,19 @@ public class Sorts {
         }
     }
     private static int getKey(Evento evento, int posicion) {
-        int valor;
         switch (posicion) {
             case 1:
-                valor = evento.getTiempo().getSegundo();
-                return valor % 10;
+                return (evento.getTiempo().getSegundo()) % 10;
             case 2:
-                valor = evento.getTiempo().getSegundo();
-                return valor / 10;
+                return (evento.getTiempo().getSegundo()) / 10;
             case 3:
-                valor = evento.getTiempo().getMinuto();
-                return valor % 10;
+                return (evento.getTiempo().getMinuto()) % 10;
             case 4:
-                valor = evento.getTiempo().getMinuto();
-                return valor / 10;
+                return (evento.getTiempo().getMinuto()) / 10;
             case 5:
-                valor = evento.getTiempo().getHora();
-                return valor % 10;
+                return (evento.getTiempo().getHora()) % 10;
             case 6:
-                valor = evento.getTiempo().getHora();
-                return valor / 10;
+                return (evento.getTiempo().getHora()) / 10;
             default:
                 return 0;
         }
