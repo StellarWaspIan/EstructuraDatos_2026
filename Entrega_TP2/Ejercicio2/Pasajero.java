@@ -34,4 +34,8 @@ public class Pasajero {
     public void setPromedio(double promedio) {
         this.promedio = promedio;
     }
+     
+    public void mostrar(){
+        System.out.println("Pasajero - "+legajo+"| Nombre: "+nombre+", Prioridad: "+prioridad+", Promedio: "+promedio);
+    }
 }
