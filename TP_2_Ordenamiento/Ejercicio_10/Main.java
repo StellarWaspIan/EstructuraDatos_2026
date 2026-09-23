@@ -51,6 +51,7 @@ public class Main {
                     }
                     break;
                 case 4:
+                    //carga 20 objetos
                     cargarEventosPrueba();
                     break;
                 case 0:
