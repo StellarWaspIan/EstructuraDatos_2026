@@ -1,5 +1,4 @@
-package Entrega_TP3.Ejercicio1Imports;
-
+package Entrega_TP3.Ejercicio1;
 public class EjemplarPatagonico {
     int idchip;
     char codigozona;

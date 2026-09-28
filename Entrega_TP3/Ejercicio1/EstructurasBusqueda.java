@@ -1,5 +1,4 @@
-package Entrega_TP3.Ejercicio1Imports;
-
+package Entrega_TP3.Ejercicio1;
 import java.util.ArrayList;
 
 public class EstructurasBusqueda {
