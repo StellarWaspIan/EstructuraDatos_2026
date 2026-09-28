@@ -1,4 +1,4 @@
-package Entrega_TP3.Ejercicio1;
+package Entrega_TP3.Ejercicio1Imports;
 
 public class EjemplarPatagonico {
     int idchip;
@@ -31,5 +31,4 @@ public class EjemplarPatagonico {
     public String toString() {
         return "idchip= " + idchip + ", codigozona= " + codigozona + ", idexpediente= " + idexpediente;
     }
-    
 }

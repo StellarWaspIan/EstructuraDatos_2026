@@ -1,49 +1,84 @@
-package Entrega_TP3.Ejercicio1;
+package Entrega_TP3.Ejercicio1Imports;
+
+import java.util.ArrayList;
 
 public class EstructurasBusqueda {
-    public static int interpolationSearch(int[] vec, int search) {
-        int first=0;
-        int mid;
-        int last=vec.length - 1;
-        while(search>=vec[first] & search<=vec[last]) {
-            mid= first + (int)Math.abs(Math.floor((search - vec[first]) * (last-first) / (vec[last]-vec[first])));
-            if(search==vec[mid]){
-                return mid;
-            } else{
-                if(search<vec[mid]){
-                    last=mid - 1;
-                } else{
-                    first=mid + 1;
-                }
+    public int sequentialSearch(char[] vec, char search) {
+        int cant=0;
+        for (int i = 0; i < vec.length; i++) {
+            if (vec[i]==search) {
+                cant++;
+                return cant;
             }
+            cant++;
         }
-        return -1;
+        return cant;
     }
 
-    public static int busquedaSequencial(int[] vec, int search) {
-        int pos=0;
-        while(pos<vec.length) {
-            if(vec[pos] == search){
-                return pos;
-            }
-            pos++;
-        }
-        return -1;
-    }
-    public static int binarySearch(int[] vec, int search) {
-        int first=0;
-        int mid;
-        int last=vec.length - 1;
+    public int binarySearch(char[] vec, char search) {
+        int first=0, mid, last=vec.length - 1, cant=0;
         while(first<=last) {
             mid=(first + last) / 2;
-            if(vec[mid]==search)
-            return mid;
-            else
-            if(vec[mid]>search)
-            last=mid - 1;
-            else
-            first=mid + 1;
+            if(vec[mid]==search){
+                cant++;
+                return cant;
+            } else if(vec[mid]>search){
+                last=mid - 1;
+                cant++;
+            } else{
+                first=mid + 1;
+            }
+            cant+=2;
         }
-        return -1;
+        return cant;
+    }
+
+    public int sequentialSearchList(ArrayList<Character> vec, char search) {
+        int cant=0;
+        for (int i = 0; i < vec.size(); i++) {
+            if (vec.get(i)==search) {
+                cant++;
+                return cant;
+            }
+            cant++;
         }
+        return cant;
+    }
+
+    public int binarySearchList(ArrayList<Character> vec, char search) {
+        int first=0, mid, last=vec.size() - 1, cant=0;
+        while(first<=last) {
+            mid=(first + last) / 2;
+            if(vec.get(mid)==search){
+                cant++;
+                return cant;
+            } else if(vec.get(mid)>search){
+                last=mid - 1;
+                cant++;
+            } else{
+                first=mid + 1;
+            }
+            cant+=2;
+        }
+        return cant;
+    }
+
+    public int binarySearchABB(Arbol abb, char search){
+        Nodo actual = abb.raiz;
+        int cant = 0;
+        while (actual != null) {
+            cant++;
+            if (actual.info == search) {
+                return cant;
+            }
+            cant++;
+            if (search < actual.info) {
+                actual = actual.izquierda;
+            } else {
+                actual = actual.derecha;
+            }
+        }
+        return cant;
+    }
+    
 }
