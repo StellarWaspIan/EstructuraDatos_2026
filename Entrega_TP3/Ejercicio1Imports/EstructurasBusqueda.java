@@ -28,7 +28,7 @@ public class EstructurasBusqueda {
             } else{
                 first=mid + 1;
             }
-            cant=+2;
+            cant+=2;
         }
         return cant;
     }
@@ -58,8 +58,27 @@ public class EstructurasBusqueda {
             } else{
                 first=mid + 1;
             }
-            cant=+2;
+            cant+=2;
         }
         return cant;
     }
+
+    public int binarySearchABB(Arbol abb, char search){
+        Nodo actual = abb.raiz;
+        int cant = 0;
+        while (actual != null) {
+            cant++;
+            if (actual.info == search) {
+                return cant;
+            }
+            cant++;
+            if (search < actual.info) {
+                actual = actual.izquierda;
+            } else {
+                actual = actual.derecha;
+            }
+        }
+        return cant;
+    }
+    
 }

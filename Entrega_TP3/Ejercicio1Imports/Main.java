@@ -13,6 +13,8 @@ public class Main {
     static ArrayList<Character> listaCodigoZonaDesordenada = new ArrayList<>();    
     //LISTA ENLAZADA ORDENADA SEGUN ASCII
     static ArrayList<Character> listaCodigoZonaOrdenada = new ArrayList<>();
+    //ARBOL BINARIO DE BUSQUEDA
+    static Arbol arbolCodigoZona = new Arbol();
     
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
@@ -22,8 +24,7 @@ public class Main {
             System.out.println("1- Cargar Elementos");
             System.out.println("2- Mostrar Arreglo");
             System.out.println("3- Crear Estructuras (Arreglos, Listas y ABB)");
-            System.out.println("4- Busqueda en Arreglo Desordenado");
-            System.out.println("5- Busqueda en Arreglo Ordenado");
+            System.out.println("4- Busqueda en Estructuras");
             System.out.println("0- Salir");
             op=sc.nextInt();
             sc.nextLine();
@@ -48,15 +49,8 @@ public class Main {
                     mostrarArreglos();
                     break;
                 case 4:
-                    System.out.println("Busquedas en Arreglos");
-                    buscarCodigoZonaArregloDesordenado();
-                    buscarCodigoZonaArregloOrdenado();
-                    break;
-                case 5:
-                    System.out.println("Busquedas Listas");
-                    buscarCodigoZonaListaDesordenado();
-                    buscarCodigoZonaListaOrdenado();
-                    break;
+                    System.out.println("Busquedas en Estructuras");
+                    buscarCodigoZona();
                 case 0:
                     System.out.println("Saliendo.....");
                     break;
@@ -120,11 +114,15 @@ public class Main {
             listaCodigoZonaOrdenada.add(vectorFauna[i].getCodigozona());
         }   
         listaCodigoZonaOrdenada.sort(null);
+
+        for (int i = 0; i < vectorFauna.length; i++) {
+            arbolCodigoZona.insertar(vectorFauna[i].getCodigozona());
+        }
     }
-    
-    public static void buscarCodigoZonaArregloDesordenado(){
+
+    public static void buscarCodigoZona(){
         EstructurasBusqueda e=new EstructurasBusqueda();
-        //SECUENCIAL
+
         System.out.println("- - Arreglo Desordenado - -");
         System.out.println("Cantidad de Comparacion al buscar caracter 'M': "+e.sequentialSearch(arregloCodigoZonaDesordenado, 'M'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'o': "+e.sequentialSearch(arregloCodigoZonaDesordenado, 'o'));
@@ -133,11 +131,7 @@ public class Main {
         System.out.println("Cantidad de Comparacion al buscar caracter 'E': "+e.sequentialSearch(arregloCodigoZonaDesordenado, 'E'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'X': "+e.sequentialSearch(arregloCodigoZonaDesordenado, 'X'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'w': "+e.sequentialSearch(arregloCodigoZonaDesordenado, 'w'));
-    }
-
-    public static void buscarCodigoZonaArregloOrdenado(){
-        EstructurasBusqueda e=new EstructurasBusqueda();
-        //SECUENCIAL
+        System.out.println("");
         System.out.println("- - Arreglo Ordenado - -");
         System.out.println("Cantidad de Comparacion al buscar caracter 'M': "+e.binarySearch(arregloCodigoZonaOrdenado, 'M'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'o': "+e.binarySearch(arregloCodigoZonaOrdenado, 'o'));
@@ -146,11 +140,7 @@ public class Main {
         System.out.println("Cantidad de Comparacion al buscar caracter 'E': "+e.binarySearch(arregloCodigoZonaOrdenado, 'E'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'X': "+e.binarySearch(arregloCodigoZonaOrdenado, 'X'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'w': "+e.binarySearch(arregloCodigoZonaOrdenado, 'w'));
-    }
-
-    public static void buscarCodigoZonaListaDesordenado(){
-        EstructurasBusqueda e=new EstructurasBusqueda();
-        //SECUENCIAL
+        System.out.println("");
         System.out.println("- - Lista Desordenada - -");
         System.out.println("Cantidad de Comparacion al buscar caracter 'M': "+e.sequentialSearchList(listaCodigoZonaDesordenada, 'M'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'o': "+e.sequentialSearchList(listaCodigoZonaDesordenada, 'o'));
@@ -159,11 +149,7 @@ public class Main {
         System.out.println("Cantidad de Comparacion al buscar caracter 'E': "+e.sequentialSearchList(listaCodigoZonaDesordenada, 'E'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'X': "+e.sequentialSearchList(listaCodigoZonaDesordenada, 'X'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'w': "+e.sequentialSearchList(listaCodigoZonaDesordenada, 'w'));
-    }
-
-    public static void buscarCodigoZonaListaOrdenado(){
-        EstructurasBusqueda e=new EstructurasBusqueda();
-        //SECUENCIAL
+        System.out.println("");
         System.out.println("- - Lista Ordenada - -");
         System.out.println("Cantidad de Comparacion al buscar caracter 'M': "+e.binarySearchList(listaCodigoZonaOrdenada,'M'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'o': "+e.binarySearchList(listaCodigoZonaOrdenada, 'o'));
@@ -172,6 +158,15 @@ public class Main {
         System.out.println("Cantidad de Comparacion al buscar caracter 'E': "+e.binarySearchList(listaCodigoZonaOrdenada, 'E'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'X': "+e.binarySearchList(listaCodigoZonaOrdenada, 'X'));
         System.out.println("Cantidad de Comparacion al buscar caracter 'w': "+e.binarySearchList(listaCodigoZonaOrdenada, 'w'));
+        System.out.println("");
+        System.out.println("- - Lista Ordenada - -");
+        System.out.println("Cantidad de Comparacion al buscar caracter 'M': "+e.binarySearchABB(arbolCodigoZona,'M'));
+        System.out.println("Cantidad de Comparacion al buscar caracter 'o': "+e.binarySearchABB(arbolCodigoZona, 'o'));
+        System.out.println("Cantidad de Comparacion al buscar caracter 'u': "+e.binarySearchABB(arbolCodigoZona, 'u'));
+        System.out.println("Cantidad de Comparacion al buscar caracter '3': "+e.binarySearchABB(arbolCodigoZona, '3'));
+        System.out.println("Cantidad de Comparacion al buscar caracter 'E': "+e.binarySearchABB(arbolCodigoZona, 'E'));
+        System.out.println("Cantidad de Comparacion al buscar caracter 'X': "+e.binarySearchABB(arbolCodigoZona, 'X'));
+        System.out.println("Cantidad de Comparacion al buscar caracter 'w': "+e.binarySearchABB(arbolCodigoZona, 'w'));
     }
 
     public static void cargarEjemplares(){
