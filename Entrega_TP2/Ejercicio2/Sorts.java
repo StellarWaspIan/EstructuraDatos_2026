@@ -102,7 +102,7 @@ public class Sorts {
         return contadores;
     }
     private static void quickSort(Pasajero[] vec, int first, int last, Contadores contadores) {
-        int center = (first + last) / 2;
+        int center = first;
         if (first < last) {
             center = division(vec, first, last, center, contadores);
             quickSort(vec, first, center, contadores);
