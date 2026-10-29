@@ -74,7 +74,7 @@ public class ListaAdyacencia {
         System.out.println("Criterio seleccionado: " + criterio);
         System.out.println("Centro de origen: " + centros[origen].getCiudad());
         for (int i = 0; i < cantidadCentros; i++) {
-            System.out.print("Destino: " + centros[i].getCiudad());
+            System.out.print(" Destino: " + centros[i].getCiudad());
             if (distanciasMinimas[i] == Double.POSITIVE_INFINITY) {
                 System.out.println(" | No existe camino");} else {
                 System.out.println(" | Valor mínimo según el criterio: " + distanciasMinimas[i]);
