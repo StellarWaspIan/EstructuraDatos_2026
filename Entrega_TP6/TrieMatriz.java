@@ -6,19 +6,19 @@ public class TrieMatriz extends Trie {
     private char[] caracteres;
     private TrieNodeMatriz[] nodos;
     private int cantidadNodos;
+    
     public TrieMatriz() {
         matriz = new int[MAX_NODOS][ALFABETO.length()];
         caracteres = new char[MAX_NODOS];
         nodos = new TrieNodeMatriz[MAX_NODOS];
         cantidadNodos = 0;
-        // Inicializar conexiones en -1
         for (int i = 0; i < MAX_NODOS; i++) {
             for (int j = 0; j < ALFABETO.length(); j++) {
                 matriz[i][j] = -1;
             }
         }
     }
-    // CREAR NODO
+
     @Override
     protected TrieNode crearNodo(char character) {
         if (cantidadNodos >= MAX_NODOS) 
@@ -30,7 +30,7 @@ public class TrieMatriz extends Trie {
         cantidadNodos++;
         return nuevo;
     }
-    // OBTENER HIJO
+
     @Override
     protected TrieNode obtenerHijo(TrieNode nodo, char character) {
         int fila = ((TrieNodeMatriz) nodo).getIndice();
@@ -42,7 +42,7 @@ public class TrieMatriz extends Trie {
             return null;
         return nodos[indiceHijo];
     }
-    // ESTABLECER HIJO
+
     @Override
     protected void establecerHijo(TrieNode nodo, char character, TrieNode nuevoNodo) {
         int fila = ((TrieNodeMatriz) nodo).getIndice();

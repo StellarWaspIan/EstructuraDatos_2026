@@ -4,18 +4,18 @@ public abstract class Trie {
     protected TrieNode root;
     protected static final String ALFABETO = "abcdefghijklmnopqrstuvwxyzñáéíóú";
     public Trie() {root = null;}
-    // Operaciones que implementara cada representacion
     protected abstract TrieNode crearNodo(char character);
     protected abstract TrieNode obtenerHijo(TrieNode nodo, char character);
     protected abstract void establecerHijo(TrieNode nodo, char character, TrieNode nuevoNodo);
-    // Normalizacion y validacion
+    
     protected String normalizar(String palabra) {
         return palabra.toLowerCase(Locale.ROOT);
     }
+
     protected boolean caracterValido(char character) {
         return ALFABETO.indexOf(character) != -1;
     }
-    // INSERTAR
+
     public void insertar(String palabra) {
         palabra = normalizar(palabra);
         if (palabra.isEmpty()) {
@@ -39,7 +39,7 @@ public abstract class Trie {
         }
         actual.setFinPalabra(true);
     }
-    // BUSCAR
+
     public boolean buscar(String palabra) {
         palabra = normalizar(palabra);
         if (root == null || palabra.isEmpty())
@@ -55,7 +55,7 @@ public abstract class Trie {
         }
         return actual.esFinPalabra();
     }
-    // CANTIDAD DE PALABRAS
+
     public int cantidadPalabras() {
         return contarPalabras(root);
     }
@@ -72,7 +72,7 @@ public abstract class Trie {
         }
         return cantidad;
     }
-    // LISTAR TODAS LAS PALABRAS
+
     public ArrayList<String> listarPalabras() {
         ArrayList<String> palabras = new ArrayList<>();
         if (root != null)
@@ -89,7 +89,7 @@ public abstract class Trie {
                 recorrerPalabras(hijo, palabraActual + character, palabras);
         }
     }
-    // BUSCAR POR PREFIJO
+
     public ArrayList<String> buscarPorPrefijo(String prefijo) {
         ArrayList<String> resultados = new ArrayList<>();
         prefijo = normalizar(prefijo);
@@ -107,7 +107,7 @@ public abstract class Trie {
         recorrerPalabras(actual, prefijo, resultados);
         return resultados;
     }
-    // CONTAR PREFIJOS DISTINTOS
+
     public int cantidadPrefijos() {
         return contarPrefijos(root);
     }
