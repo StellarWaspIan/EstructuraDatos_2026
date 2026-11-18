@@ -1,6 +1,4 @@
 package Entrega_TP7;
-
-
 public class Keys {
     String[] claves;
     int cantidad;

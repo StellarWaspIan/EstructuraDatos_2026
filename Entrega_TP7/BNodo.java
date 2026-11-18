@@ -1,6 +1,4 @@
 package Entrega_TP7;
-
-
 public class BNodo {
     Keys claves;
     BNodo[] hijos;

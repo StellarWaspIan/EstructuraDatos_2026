@@ -1,43 +1,32 @@
 package Entrega_TP7;
 
-import java.util.Stack;
+import java.util.*;
 
 public class BArbol {
-
-    private BNodo raiz;
-    private int orden;
-
+    BNodo raiz;
+    int orden;
     public BArbol(int orden) {
-
         this.orden = orden;
         raiz = null;
     }
 
     // BUSQUEDA
     public boolean buscarClave(String clave) {
-
         BNodo nodoActual = raiz;
-
         while (nodoActual != null) {
-
             Keys claves = nodoActual.getClaves();
-
             int posicion = claves.buscar(clave);
-
             // La clave fue encontrada.
             if (posicion == -1) {
                 return true;
             }
-
             // Si es hoja, la clave no existe.
             if (nodoActual.esHoja()) {
                 return false;
             }
-
             // Continuar por el hijo correspondiente.
             nodoActual = nodoActual.obtenerHijo(posicion);
         }
-
         return false;
     }
 
@@ -127,7 +116,7 @@ public class BArbol {
         return true;
     }
 
-    private void eliminarRecursivo(BNodo nodo, String clave) {
+    void eliminarRecursivo(BNodo nodo, String clave) {
         Keys claves = nodo.getClaves();
         int posicion = claves.buscar(clave);
 
